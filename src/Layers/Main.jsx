@@ -7,10 +7,10 @@ const Main = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className='h-screen'>
+            <div className=''>
                 <Outlet></Outlet>
             </div>
-            <div className='h'>
+            <div className=''>
                 <Footer></Footer>
             </div>
         </div>
