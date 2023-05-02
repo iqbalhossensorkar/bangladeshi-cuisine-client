@@ -36,14 +36,16 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <><>
-                            <div className="avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src={user.photoURL} />
+                        <>
+
+                            <div className="tooltip" data-tip={user?.displayName}>
+                                <div className="avatar">
+                                    <div className="w-10 rounded-full mr-4">
+                                        <img src={user.photoURL} />
+                                    </div>
                                 </div>
                             </div>
-                        </>
-                        <span>{user?.displayName}</span><button className='btn' onClick={handleLogOut}>sign out</button></>
+                            <button className='btn' onClick={handleLogOut}>sign out</button></>
                         :
                         <Link to='/login' className="btn">Login</Link>
                 }

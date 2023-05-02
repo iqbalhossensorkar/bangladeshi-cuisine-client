@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
@@ -43,7 +43,7 @@ const Register = () => {
 
         })
             .then(() => {
-                console.log(result.displayName);
+                console.log(result.displayName, result.photoURL);
                 setUserName(result.displayName);
                 setPhoto(result.photoURL)
             }).catch((error) => {
@@ -96,9 +96,13 @@ const Register = () => {
 
                     :
                     <div className='hero min-h-screen'>
-                        <img src={user.photoURL} alt="" />
-                        <p className='mb-12'>Good job, <strong>{user.displayName}</strong>. Have fun😍😍😍</p>
-                        <Link className='btn btn-error mt-28' to="/">ok</Link>
+                        {/* <div className="avatar">
+                            <div className="w-16 rounded-full mb-44">
+                                <img src={user?.photoURL} />
+                            </div>
+                        </div> */}
+                        <p className='mb-12'>Good job, <strong>{user?.displayName}</strong>. Have fun😍😍😍</p>
+                        <Link className='btn btn-error mt-28' to="/">Home</Link>
                     </div>
             }
 
