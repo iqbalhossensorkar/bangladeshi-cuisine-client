@@ -5,14 +5,13 @@ import Footer from '../Pages/Shared/Footer';
 
 const Main = () => {
     return (
-        <div>
-            <Navbar></Navbar>
-            <div className=''>
-                <Outlet></Outlet>
+        <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <div className='min-h-screen'>
+            <Outlet />
             </div>
-            <div className=''>
-                <Footer></Footer>
-            </div>
+            <div className="flex-grow" />
+            <Footer />
         </div>
     );
 };
