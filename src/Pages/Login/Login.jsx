@@ -6,6 +6,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
     const { googleSignIn, githubSignIn, signIn } = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState("");
     const [show, setShow] = useState(false);
     const handleShowHide = () => {
         setShow(!show);
@@ -26,6 +27,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.log('error', error.message);
+                setErrorMessage(error.message);
             })
 
     }
@@ -62,7 +64,7 @@ const Login = () => {
                                 <span onClick={handleGoogleSignIn} className='btn btn-outline btn-info w-full mb-4'><FaGoogle className='mr-3 h-5'></FaGoogle>Continue with google</span>
                                 <span onClick={handleGithubSignIn} className='btn btn-outline w-full'><FaGithub className='mr-3 h-5'></FaGithub>Continue with github</span>
                                 <p className='text-center mb-4'>Or</p>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered input-error w-full max-w-xs" />
+                                <input type="email" name='email' placeholder="email" className="input input-bordered input-error w-full max-w-xs" required/>
                             </div>
                             <div className="form-control">
                                 <label className='input-group'>
@@ -73,6 +75,7 @@ const Login = () => {
                                     </div></span>
                                 </label>
                             </div>
+                            {errorMessage && <p className='text-error'><small>{errorMessage}</small></p>}
                             <div className="form-control mt-6">
                                 <button className="btn btn-error">Login</button>
                             </div>

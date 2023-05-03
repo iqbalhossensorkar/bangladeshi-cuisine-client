@@ -9,6 +9,7 @@ const Register = () => {
     const { createUser, user } = useContext(AuthContext);
     const [userName, setUserName] = useState('')
     const [photo, setPhoto] = useState('')
+    const [error, setError] = useState('')
     const [show, setShow] = useState(false);
     const handleShowHide = () => {
         setShow(!show);
@@ -23,6 +24,11 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const check = form.check.checked;
         // console.log(name, email, photoURL, check, password);
+
+        if (!/^.{6,16}$/.test(password)) {
+            setError("Password should be at least 6 characters.");
+            return;
+        }
 
         createUser(email, password)
             .then(result => {
@@ -77,6 +83,7 @@ const Register = () => {
                                                     }
                                                 </div></span>
                                             </label>
+                                            {error && <p className='text-error'><small>{error}</small></p>}
                                         </div>
                                         <div className="form-control">
                                             <input type="text" name='photoURL' placeholder="Photo URL" className="input input-bordered input-error w-full max-w-xs" />
