@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
-            <div className='min-h-screen'>
+            <div className=''>
             <Outlet />
             </div>
             <div className="flex-grow" />

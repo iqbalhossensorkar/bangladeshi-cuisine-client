@@ -6,6 +6,7 @@ import Register from "../Pages/Login/Register";
 import Chefs from "../Pages/Home/Chefs/Chefs";
 import Blog from "../Pages/Home/Blogs/Blog";
 import First from "../Pages/Home/First/First";
+import Recipies from "../Pages/Home/Recipies/Recipies";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <First></First>
+            },
+            {
+                path: '/chefs/:id',
+                element: <Recipies></Recipies>,
+                loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
             },
             {
                 path: '/blog',

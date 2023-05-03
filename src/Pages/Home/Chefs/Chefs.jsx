@@ -16,7 +16,9 @@ const Chefs = () => {
             <p className='text-gray-400 text-center mb-16'>Find The Best Chefs Recipes</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 pl-2 pr-2'>
                 {
-                    Chef.map(singleChef => <CardChef key={singleChef.id} singleChef={singleChef}></CardChef>)
+                    Chef.map(singleChef =>
+                        <CardChef key={singleChef.id} singleChef={singleChef}></CardChef>
+                    )
                 }
             </div>
             <div className='text-center'>

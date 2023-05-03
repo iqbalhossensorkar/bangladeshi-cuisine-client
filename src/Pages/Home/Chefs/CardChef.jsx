@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const CardChef = ({ singleChef }) => {
     const { img, id, name, experience, recipes, like } = singleChef;
+    // console.log(singleChef);
     return (
         <div className='container mx-auto mb-10'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -18,7 +19,7 @@ const CardChef = ({ singleChef }) => {
                         <div className='flex-1'>
                             <p className='flex justify-start items-center'><FaHeart className='mr-2 text-error'></FaHeart><span> {like}</span></p>
                         </div>
-                        <Link to={`chef/${singleChef.id}`} className='btn btn-outline btn-error'>View Recipes</Link>
+                        <Link to={`chefs/${singleChef.id}`} className='btn btn-outline btn-error'>View Recipes</Link>
                     </div>
                 </div>
             </div>
