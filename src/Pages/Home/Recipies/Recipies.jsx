@@ -8,7 +8,7 @@ import { FaHeart } from 'react-icons/fa';
 const Recipies = () => {
     // const getChef = useLoaderData();
     const chefById = useLoaderData();
-    console.log(chefById);
+    // console.log(chefById);
     const { id, img, name, description, like, experience, recipes } = chefById;
     return (
         <div className='container mx-auto mb-20'>
@@ -30,9 +30,9 @@ const Recipies = () => {
                     <Lottie animationData={animated} loop={true} className='' />
                 </div>
             </div>
-            <div>
-            <h1 className='text-center text-4xl font-semibold mb-6'>My Achievements</h1>
-            <p className='text-gray-400 text-center mb-20'>This is my career || Cooking is my passion || My dreams always </p>
+            <div className='mb-20'>
+                <h1 className='text-center text-4xl font-semibold mb-6'>My Achievements</h1>
+                <p className='text-gray-400 text-center mb-20'>This is my career || Cooking is my passion || My dreams always </p>
                 <div className='flex justify-evenly items-center'>
                     <div className='flex flex-col justify-center items-center px-8 py-4 border-2 border-error rounded-lg'>
                         <FaHeart className='text-error text-4xl'></FaHeart>
@@ -43,6 +43,13 @@ const Recipies = () => {
                         <p className='text-xl font-bold text-gray-400 text-center'>Experience</p>
                     </div>
                 </div>
+            </div>
+            <div className='lg:px-32'>
+                <p className='text-4xl font-semibold text-center mb-8  mt-10'>Best Recipes</p>
+                <p className='text-gray-400 text-center mb-12'>Bangladeshi best recipe ever   ||   Learn the best serve the best</p>
+                {
+                    recipes.map(singleRecipe => <Recipe key={singleRecipe.recipe_id} singleRecipe={singleRecipe}></Recipe>)
+                }
             </div>
         </div>
     );
