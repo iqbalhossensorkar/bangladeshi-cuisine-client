@@ -10,9 +10,14 @@ const Register = () => {
     const [userName, setUserName] = useState('')
     const [photo, setPhoto] = useState('')
     const [error, setError] = useState('')
+    const [termsCheck, setTermCheck] = useState(false);
     const [show, setShow] = useState(false);
     const handleShowHide = () => {
         setShow(!show);
+    }
+
+    const handleTermsCheck = event => {
+        setTermCheck(event.target.checked)
     }
 
     const handleSignUp = event => {
@@ -22,7 +27,6 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photoURL = form.photoURL.value;
-        const check = form.check.checked;
         // console.log(name, email, photoURL, check, password);
 
         if (!/^.{6,16}$/.test(password)) {
@@ -89,10 +93,10 @@ const Register = () => {
                                             <input type="text" name='photoURL' placeholder="Photo URL" className="input input-bordered input-error w-full max-w-xs" />
                                         </div>
                                         <label className="label">
-                                            <span className='flex items-center '><input type="checkbox" name="check" id="" /><small className='ml-2'>Accept Our <Link className='text-blue-500 link link-hover hover:text-black'>Terms & Conditions</Link></small></span>
+                                            <span className='flex items-center '><input onClick={handleTermsCheck} type="checkbox" name="check" id="" /><small className='ml-2'>Accept Our <Link className='text-blue-500 link link-hover hover:text-black' to='/terms'>Terms & Conditions</Link></small></span>
                                         </label>
                                         <div className="form-control mt-6">
-                                            <button className="btn btn-error">Register</button>
+                                            <button className="btn btn-error" disabled={!termsCheck}>Register</button>
                                         </div>
                                         <p>Already have an account? <Link className='text-blue-500 text-center link link-hover hover:text-black' to="/login">Login Now</Link></p>
                                     </form>
