@@ -18,7 +18,7 @@ export default class DemoComponent extends Component {
     _plugins = [new AutoPlay({ stopOnHover: true })];
 
     render() {
-        return <div className="container mx-auto lg:px-96 px-20 ">
+        return <div className="container mx-auto lg:px-96 px-20 mb-60">
             <p className="text-4xl font-semibold text-center mb-6">Quick Searches</p>
             <p className="text-gray-400 text-center mb-16">Discover Meals By Local Chefs</p>
                 <Flicking circular={true} horizontal={true} plugins={this._plugins}>

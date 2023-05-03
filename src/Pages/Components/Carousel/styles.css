@@ -7,14 +7,14 @@ body {
   
   [class^="number-slide"],
   [class*=" number-slide"] {
-    background: grey;
+    background: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 50px;
     color: #fff;
     font-weight: 500;
-    height: 550px;
+    /* height: 550px; */
     max-height: 100vh;
   }
   

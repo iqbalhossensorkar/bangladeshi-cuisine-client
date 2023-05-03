@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
 import Chefs from "../Pages/Home/Chefs/Chefs";
 import Blog from "../Pages/Home/Blogs/Blog";
+import First from "../Pages/Home/First/First";
 
 const router = createBrowserRouter([
     {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Chefs></Chefs>
+                element: <First></First>
             },
             {
                 path: '/blog',
