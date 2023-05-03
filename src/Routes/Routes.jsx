@@ -1,17 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import Navbar from "../Pages/Shared/Navbar";
 import Main from "../Layers/Main";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
-import Chefs from "../Pages/Home/Chefs/Chefs";
 import Blog from "../Pages/Home/Blogs/Blog";
 import First from "../Pages/Home/First/First";
 import Recipies from "../Pages/Home/Recipies/Recipies";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage"
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
