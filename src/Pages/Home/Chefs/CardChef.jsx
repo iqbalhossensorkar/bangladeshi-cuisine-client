@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { ChefContext } from '../../../Layers/Main';
 
 const CardChef = ({ singleChef }) => {
     const { img, id, name, experience, recipes, like } = singleChef;
-    // console.log(singleChef);
+  
 
     return (
         <div className='container mx-auto mb-10'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div>
                     <figure><img src={img} alt="Chef Image" className='h-72 w-full' /></figure>
-                    <span className="badge rounded-none p-5 border border-white text-white text-xl badge-error absolute top-[265px] right-3">Recipes: {
-                        recipes?.map((r) => <div key={r.recipe_id}>{r.length}</div>)
-                    }</span></div>
+                    <span className="badge rounded-none p-5 border border-white text-white text-xl badge-error absolute top-[265px] right-3">Recipes: {recipes.length}</span></div>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <p className='text-gray-400'>Year of Experience: {experience}</p>

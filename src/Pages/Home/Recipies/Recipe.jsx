@@ -8,7 +8,6 @@ import '@smastrom/react-rating/style.css'
 
 
 const Recipe = ({ singleRecipe }) => {
-    console.log(singleRecipe);
     const [isDisabled, setIsDisabled] = useState(false);
 
     const notify = () => {

@@ -10,6 +10,7 @@ const Recipies = () => {
     const chefById = useLoaderData();
     // console.log(chefById);
     const { id, img, name, description, like, experience, recipes } = chefById;
+    console.log(recipes.length);
     return (
         <div className='container mx-auto mb-20'>
             <div className="p-4 bg-gray-200 mb-20">
