@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`),
+        loader: ({params}) => fetch(`https://bangladeshi-cuisine-server-iqbalhossensorkar.vercel.app/chefs/${params.id}`),
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
             {
                 path: '/chefs/:id',
                 element: <PrivateRoute><Recipies></Recipies></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+                loader: ({params}) => fetch(`https://bangladeshi-cuisine-server-iqbalhossensorkar.vercel.app/chefs/${params.id}`)
             },
             {
                 path: '/blog',
