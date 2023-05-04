@@ -43,6 +43,7 @@ const Login = () => {
             .then(result => {
                 const googleLoggedIn = result.user;
                 console.log(googleLoggedIn);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log('error', error.message);
@@ -54,6 +55,7 @@ const Login = () => {
             .then(result => {
                 const githubLoggedIn = result.user;
                 console.log(githubLoggedIn);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log('error', error.message);
