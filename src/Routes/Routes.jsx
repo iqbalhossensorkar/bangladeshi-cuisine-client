@@ -7,6 +7,7 @@ import First from "../Pages/Home/First/First";
 import Recipies from "../Pages/Home/Recipies/Recipies";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage"
 import Terms from "../Pages/Terms/Terms";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/chefs/:id',
-                element: <Recipies></Recipies>,
+                element: <PrivateRoute><Recipies></Recipies></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
             },
             {

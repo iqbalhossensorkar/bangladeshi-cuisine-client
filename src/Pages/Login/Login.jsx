@@ -1,13 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import logo from '../../assets/logo.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
     const { googleSignIn, githubSignIn, signIn } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState("");
     const [show, setShow] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state?.from?.pathname || '/'
+
     const handleShowHide = () => {
         setShow(!show);
     }
@@ -24,6 +29,7 @@ const Login = () => {
                 form.reset();
                 const loggedIn = result.user;
                 console.log(loggedIn);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log('error', error.message);
@@ -64,7 +70,7 @@ const Login = () => {
                                 <span onClick={handleGoogleSignIn} className='btn btn-outline btn-info w-full mb-4'><FaGoogle className='mr-3 h-5'></FaGoogle>Continue with google</span>
                                 <span onClick={handleGithubSignIn} className='btn btn-outline w-full'><FaGithub className='mr-3 h-5'></FaGithub>Continue with github</span>
                                 <p className='text-center mb-4'>Or</p>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered input-error w-full max-w-xs" required/>
+                                <input type="email" name='email' placeholder="email" className="input input-bordered input-error w-full max-w-xs" required />
                             </div>
                             <div className="form-control">
                                 <label className='input-group'>
