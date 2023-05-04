@@ -4,6 +4,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import animated from '../../../assets/animated/19705-chef.json'
 import Lottie from "lottie-react";
 import { FaHeart } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 
 const Recipies = () => {
     // const getChef = useLoaderData();
@@ -15,7 +16,9 @@ const Recipies = () => {
         <div className='container mx-auto mb-20'>
             <div className="p-4 bg-gray-200 mb-20">
                 <div className='flex items-center justify-center relative top-20'>
-                    <img src={img} alt="" className='object-contain' />
+                    <LazyLoad height={540}>
+                        <img src={img} alt="" className='h-[540px] object-contain' />
+                    </LazyLoad>
                 </div>
                 <div className='text-center'>
                     <h2 className='badge lg:text-3xl font-semibold p-5 rounded-none relative top-14'>{name}</h2>
